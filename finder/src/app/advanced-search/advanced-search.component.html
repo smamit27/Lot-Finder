@@ -1,3 +1,53 @@
-<p>
-  advanced-search works!
-</p>
+<form [formGroup]="searchResultsService.form" class="normal-form" (submit)="onSubmit()">
+    <mat-grid-list cols="1" rowHeight="500px">
+        <mat-grid-tile>
+          <div class="controles-container">
+            <input type="hidden" formControlName="$key">
+            <div class="add-bottom-padding">
+                <mat-radio-group formControlName="search">
+                  <mat-radio-button value="1">By Sell Tile</mat-radio-button>
+                  <mat-radio-button value="2">By Lot</mat-radio-button>
+                </mat-radio-group>
+              </div>
+            <mat-form-field>
+              <input  formControlName="keyword" matInput placeholder="keyword*">
+              <mat-error>This field is mandatory</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input  formControlName="lotTitle" matInput placeholder="Lot Title">
+            </mat-form-field>
+            <mat-form-field>
+                <input  formControlName="provenance" matInput placeholder="Provenance">
+              </mat-form-field>
+          <mat-form-field>
+            <input formControlName="saleDateFrom" matInput [matDatepicker]="picker1" placeholder="Sale Date From">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+              <input formControlName="saleDateTo" matInput [matDatepicker]="picker2" placeholder="Sale Date To">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select formControlName="location" placeholder="Location">
+                  <mat-option>None</mat-option>
+                  <ng-container *ngFor="let location of locationService.array">
+                    <mat-option value="{{location.$key}}">{{location.name}}</mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+            <div class="add-bottom-padding">
+                <mat-checkbox formControlName="searchUpcoming">Search Upcoming sales only</mat-checkbox>
+              </div>
+            <div class="button-row ">
+              <button mat-raised-button color="primary"  type="submit">Search</button>
+              <button mat-raised-button color="warn" (click)="onClear()">Clear Form </button>
+            </div>
+
+
+        </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+</form>
+

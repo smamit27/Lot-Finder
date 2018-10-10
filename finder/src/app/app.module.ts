@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 import { AuctionSearchComponent } from './auction-search/auction-search.component';
 import { environment} from '../environments/environment';
+import { SearchResultsService } from './shared/search-results.service';
+import { LocationService } from './shared/location.service';
+
 
 
 @NgModule({
@@ -28,10 +31,9 @@ import { environment} from '../environments/environment';
     FormsModule,
     AngularFireModule,
     AngularFireDatabaseModule,
-    
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, SearchResultsService , LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
