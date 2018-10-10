@@ -19,9 +19,11 @@ export class AdvancedSearchComponent implements OnInit {
 
   onSubmit() {
     debugger;
-    this.searchResultsService.form.value;
-    this.searchResultsService.form.reset();
-    this.searchResultsService.initializeFormGroup();
+    const finder = this.searchResultsService.form.value;
+    this.searchResultsService.searchFinder(finder);
+    debugger;
+    // this.searchResultsService.form.reset();
+    // this.searchResultsService.initializeFormGroup();
   }
 
   onClear() {

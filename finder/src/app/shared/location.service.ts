@@ -9,7 +9,6 @@ export class LocationService {
   array = [];
   constructor(private fireBase: AngularFireDatabase) { 
     this.locationList = this.fireBase.list('locationList');
-    debugger;
     this.locationList.snapshotChanges().subscribe(
       list =>{
         this.array = list.map(item =>{

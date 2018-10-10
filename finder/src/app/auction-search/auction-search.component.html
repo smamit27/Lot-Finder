@@ -1,3 +1,17 @@
-<p>
-  auction-search works!
-</p>
+<form [formGroup]="searchResultsService.formAuction" class="normal-form" (submit)="onAuction()">
+  <mat-grid-list cols="1" rowHeight="200px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="saleNumber" matInput placeholder="Sale Number">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="lotNumber" matInput placeholder="Lot Number">
+        </mat-form-field>
+        <div class="button-row ">
+          <button mat-raised-button color="primary" type="submit">Search</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

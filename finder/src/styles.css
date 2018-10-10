@@ -1,8 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+div.container{
+    margin: 0px 40px;
+}
 .controles-container{
     width: 100%;
-    padding: 5%;    
+    padding: 0px 10px 10px 10px;    
 }
 .fill-remaining-space {
     /* This fills the remaining space, by using flexbox. 

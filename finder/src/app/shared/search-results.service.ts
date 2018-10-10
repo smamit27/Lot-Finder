@@ -13,7 +13,7 @@ export class SearchResultsService {
 
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
-    search: new FormControl('2'),
+    search: new FormControl('1'),
     keyword: new FormControl(null),
     lotTitle: new FormControl(''),
     provenance: new FormControl(''),
@@ -21,6 +21,10 @@ export class SearchResultsService {
     saleDateFrom: new FormControl(null),
     saleDateTo:  new FormControl(null),
     searchUpcoming:  new FormControl(false)
+  });
+  formAuction: FormGroup = new FormGroup({
+    saleNumber: new FormControl(null),
+    lotNumber: new FormControl(null),
   });
 
   initializeFormGroup() {
@@ -36,8 +40,31 @@ export class SearchResultsService {
       searchUpcoming: false
     });
   }
+  initializeFormAuctionGroup() {
+    this.form.setValue({
+      $key: null,
+      saleNumber: '',
+      lotNumber: ''
+    });
+
+  }
   getFinder() {
     this.searchList = this.fireBase.list('lotfinder');
+    return this.searchList.snapshotChanges();
 
+
+  }
+  searchFinder(finder) {
+
+    this.searchList.push({
+      search: finder.search,
+      keyword: finder.keyword,
+      lotTitle: finder.lotTitle,
+      provenance: finder.provenance,
+      saleDateFrom: this.datePipe.transform(finder.saleDateFrom, 'yyyy-MM-dd'),
+      saleDateFromTo:  this.datePipe.transform(finder.saleDateFromTo, 'yyyy-MM-dd') ,
+      location: finder.location,
+      searchUpcoming: finder.searchUpcoming
+    });
   }
 }
