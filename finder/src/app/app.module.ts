@@ -14,6 +14,7 @@ import { AuctionSearchComponent } from './auction-search/auction-search.componen
 import { environment} from '../environments/environment';
 import { SearchResultsService } from './shared/search-results.service';
 import { LocationService } from './shared/location.service';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 
@@ -21,7 +22,8 @@ import { LocationService } from './shared/location.service';
   declarations: [
     AppComponent,
     AdvancedSearchComponent,
-    AuctionSearchComponent
+    AuctionSearchComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

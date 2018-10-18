@@ -10,20 +10,19 @@ import { LocationService } from '../shared/location.service';
 })
 export class AdvancedSearchComponent implements OnInit {
 
-  constructor( private searchResultsService : SearchResultsService,
-               private locationService: LocationService) { }
+  constructor(private searchResultsService: SearchResultsService,
+    private locationService: LocationService) { }
 
   ngOnInit() {
     this.searchResultsService.getFinder();
   }
 
   onSubmit() {
-    debugger;
+
     const finder = this.searchResultsService.form.value;
     this.searchResultsService.searchFinder(finder);
-    debugger;
-    // this.searchResultsService.form.reset();
-    // this.searchResultsService.initializeFormGroup();
+    this.searchResultsService.form.reset();
+    this.searchResultsService.initializeFormGroup();
   }
 
   onClear() {

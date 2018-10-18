@@ -51,11 +51,8 @@ export class SearchResultsService {
   getFinder() {
     this.searchList = this.fireBase.list('lotfinder');
     return this.searchList.snapshotChanges();
-
-
   }
   searchFinder(finder) {
-
     this.searchList.push({
       search: finder.search,
       keyword: finder.keyword,

@@ -1,5 +1,5 @@
 <form [formGroup]="searchResultsService.form" class="normal-form" (submit)="onSubmit()">
-    <mat-grid-list cols="1" rowHeight="600px">
+    <mat-grid-list md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12" cols="1" rowHeight="600px">
         <mat-grid-tile>
           <div class="controles-container">
             <input type="hidden" formControlName="$key">
@@ -10,7 +10,7 @@
                 </mat-radio-group>
               </div>
             <mat-form-field>
-              <input  formControlName="keyword" matInput placeholder="keyword*">
+              <input type="number" formControlName="keyword" matInput placeholder="keyword*">
               <mat-error>This field is mandatory</mat-error>
             </mat-form-field>
             <mat-form-field>

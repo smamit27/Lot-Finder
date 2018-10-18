@@ -17,8 +17,19 @@ div.container{
     width: 51%;
     }
     mat-radio-group mat-radio-button{
-        margin-left: 5px;
+        margin: 5px 15px 0px 0px;
     }
     .button-row button{
         margin: 10px 10px 0px 0px;
+    }
+
+    @media screen and (max-width: 736px) { 
+        .controles-container > * {
+            width: 100%;
+            }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) { 
+        .controles-container > * {
+            width: 80%;
+            }
     }
